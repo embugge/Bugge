@@ -1,0 +1,125 @@
+@(message: String)
+
+@main("PushMe | Dashboard") {
+
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <p class="lead">{Username}</p>
+            <div class="list-group">
+                <a href="/" class="list-group-item active">Main page</a>
+                <a href="/statistics" class="list-group-item">Statistics</a>
+                <a href="#" class="list-group-item">Calendar</a>
+                <a href="#" class="list-group-item">Leaderboard</a>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="thumbnail">
+                <img class="img-responsive" style="height: auto; width: 100%;" src="@routes.Assets.at("images/runner.jpg")" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">Pull right note</h4>
+                    <h4><a href="#">This is just a test template</a>
+                    </h4>
+                </div>
+                <div class="ratings">
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        4.0 stars
+                    </p>
+                </div>
+            </div>
+
+            <div class="well">
+
+                <div class="text-left">
+                    <a class="btn btn-success">Click me</a>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">10 days ago</span>
+                        <p>This app was great in terms of quality. I would definitely use this again!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">12 days ago</span>
+                        <p>I've already signed up for 10 years!</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        Anonymous
+                        <span class="pull-right">15 days ago</span>
+                        <p>I've seen some better than this, but not at with these awesome BCTs. I definitely recommend this app.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div class="container">
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; PushMe 2015</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="@routes.Assets.at("javascripts/jquery.js")"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+
+}
