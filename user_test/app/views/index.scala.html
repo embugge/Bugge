@@ -1,0 +1,55 @@
+@(users: List[Person], userForm: Form[Person])
+
+    @import helper._
+
+    @main("Create user") {
+
+        
+		<div class="container">
+		    <div class="row">
+		        <div class="col-md-offset-2 col-md-3">
+		        <h3>Create user:</h3>
+		            <div class="form-login">
+		            	@form(routes.Application.newUser()) {
+		            <input type="text" name="name" id="" value="" class="form-control input-sm chat-input" placeholder="username" maxlength="20"/>
+		            </br>
+		            <input type="text" name="password" id="" value="" class="form-control input-sm chat-input" placeholder="password" maxlength="20"/>
+		            </br>
+		            <label for="admin">Admin:</label>
+					<input type="checkbox" name="isAdmin" /><br><br>
+		            <div class="wrapper">
+		            <span class="group-btn">     
+		            <input class="btn btn-primary btn-md" type="submit" value="Create">
+		            	}
+		            </span>
+		            </div>
+		            </div>		        
+		        </div>
+		    
+		
+        
+        <h3>List over users (@users.size() in total):</h3>
+        
+		<table class="table-bordered table-striped table-condensed table-hover">
+		  <tr>
+		    <th>Name</th>
+		    <th>Password</th>
+		    <th>isAdmin</th>
+		    <th>Delete</th>
+		  </tr>
+		    @for(user <- users) {
+		    <tr>
+		    <td>@user.name</td>
+		    <td>@user.password</td>
+		    <td>@user.isAdmin</td>
+		    <td>@form(routes.Application.deleteUser(user.id)) {
+                    <input type="submit" value="Delete">}
+            </td>
+		    </tr>
+		    }
+		</table>
+		</div>
+		</div> 
+      
+
+    }

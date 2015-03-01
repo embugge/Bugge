@@ -3,11 +3,12 @@
 
 # --- !Ups
 
-create table task (
+create table user (
   id                        bigint auto_increment not null,
-  label                     varchar(255),
   name                      varchar(255),
-  constraint pk_task primary key (id))
+  password                  varchar(255),
+  is_admin                  tinyint(1) default 0,
+  constraint pk_user primary key (id))
 ;
 
 
@@ -17,7 +18,7 @@ create table task (
 
 SET FOREIGN_KEY_CHECKS=0;
 
-drop table task;
+drop table user;
 
 SET FOREIGN_KEY_CHECKS=1;
 

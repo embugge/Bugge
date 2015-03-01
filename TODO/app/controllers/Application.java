@@ -37,5 +37,13 @@ public class Application extends Controller {
     }
 
     static Form<Task> taskForm = Form.form(Task.class);
+    
+    public static Result createTask(String label, String name ){
+    	Task testTask = new Task();
+    	testTask.label = label;
+    	testTask.name = name;
+    	Task.create(testTask);
+    	return redirect(routes.Application.tasks()); 
+    }
 
 }

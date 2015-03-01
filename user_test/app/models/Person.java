@@ -8,29 +8,29 @@ import play.data.validation.Constraints.*;
 import javax.persistence.*;
 
 @Entity
-public class Task extends Model {
-	
-	private static int lastID;
+public class Person extends Model {
 
     @Id
     public Long id;
 
     @Required
-    public String label;
+    public String name;
     
     @Required
-    public String name;
+    public String password;
+    
+    @Required
+    public boolean isAdmin;
 
-    public static Finder<Long,Task> find = new Finder(
-            Long.class, Task.class
+    public static Finder<Long,Person> find = new Finder(
+            Long.class, Person.class
     );
-    public static List<Task> all() {
+    public static List<Person> all() {
         return find.all();
     }
 
-
-    public static void create(Task task) {
-        task.save();
+    public static void create(Person user) {
+        user.save();
     }
 
     public static void delete(Long id) {
