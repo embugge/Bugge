@@ -35,6 +35,12 @@ public class Application extends Controller {
         Person.delete(id);
         return redirect(routes.Application.persons());
     }
+    
+    public static Result login() {
+        return ok(
+                views.html.login.render("Erik Bugge")
+        );
+    }
 
     static Form<Person> personForm = Form.form(Person.class);
 

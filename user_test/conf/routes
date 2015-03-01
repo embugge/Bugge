@@ -12,3 +12,6 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /users                  controllers.Application.persons()
 POST    /users                  controllers.Application.newUser()
 POST    /users/:id/delete       controllers.Application.deleteUser(id: Long)
+
+#Login
+GET		/login					controllers.Application.login()
