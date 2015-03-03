@@ -11,6 +11,12 @@ create table person (
   constraint pk_person primary key (id))
 ;
 
+create table user_activity (
+  u_id                      bigint,
+  a_id                      bigint,
+  step_count                double)
+;
+
 
 
 
@@ -19,6 +25,8 @@ create table person (
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table person;
+
+drop table user_activity;
 
 SET FOREIGN_KEY_CHECKS=1;
 

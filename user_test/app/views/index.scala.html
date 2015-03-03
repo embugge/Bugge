@@ -1,4 +1,4 @@
-@(users: List[Person], userForm: Form[Person])
+@(users: List[Person], userForm: Form[Person], uActivities: List[UserActivity], uaForm: Form[UserActivity])
 
     @import helper._
 
@@ -49,7 +49,48 @@
 		    }
 		</table>
 		</div>
+		</div>
+		
+				<div class="container">
+		    <div class="row">
+		        <div class="col-md-offset-2 col-md-3">
+		        <h3>Create UserActivity:</h3>
+		            <div class="form-login">
+		            	@form(routes.Application.newUA()) {
+		            <input type="text" name="u_id" id="" value="" class="form-control input-sm chat-input" placeholder="u_id" maxlength="20"/>
+		            </br>
+		            <input type="text" name="a_id" id="" value="" class="form-control input-sm chat-input" placeholder="a_id" maxlength="20"/>
+		            </br>
+		            <input type="text" name="step_count" id="" value="" class="form-control input-sm chat-input" placeholder="steps" maxlength="20"/>
+		            <div class="wrapper">
+		            <span class="group-btn"><br>  
+		            <input class="btn btn-primary btn-md" type="submit" value="Create">
+		            	}
+		            </span>
+		            </div>
+		            </div>		        
+		        </div>
+		    
+		
+        
+        <h3>List over UserActivities (@uActivities.size() in total):</h3>
+        
+		<table class="table-bordered table-striped table-condensed table-hover">
+		  <tr>
+		    <th>id</th>
+		    <th>steps</th>
+		  </tr>
+		    @for(ua <- uActivities) {
+		    <tr>
+		    <td>@ua.u_id</td>
+		    <td>@ua.step_count</td>
+
+		    </tr>
+		    }
+		</table>
+		</div>
 		</div> 
-      
+		
+
 
     }
