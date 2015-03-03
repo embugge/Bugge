@@ -38,28 +38,8 @@ public class Application extends Controller {
     
     public static Result login() {
         return ok(
-        		login.render(Form.form(Login.class))
+                views.html.login.render("Erik Bugge")
         );
-    }
-    
-    public static Result authenticate() {
-        Form<Login> loginForm = Form.form(Login.class).bindFromRequest();
-        if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
-        } else {
-            session().clear();
-            session("email", loginForm.get().email);
-            return redirect(
-                routes.Application.index()
-            );
-        }
-    }
-    
-    public String validate() {
-        if (Person.authenticate(email, password) == null) {
-          return "Invalid user or password";
-        }
-        return null;
     }
 
     static Form<Person> personForm = Form.form(Person.class);
