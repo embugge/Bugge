@@ -1,4 +1,4 @@
-@(users: List[User], userForm: Form[User])
+@(users: List[Person], userForm: Form[Person])
 
     @import helper._
 
@@ -11,7 +11,7 @@
 		        <h3>Create user:</h3>
 		            <div class="form-login">
 		            	@form(routes.Application.newUser()) {
-		            <input type="text" name="email" id="" value="" class="form-control input-sm chat-input" placeholder="email" maxlength="20"/>
+		            <input type="text" name="name" id="" value="" class="form-control input-sm chat-input" placeholder="username" maxlength="20"/>
 		            </br>
 		            <input type="text" name="password" id="" value="" class="form-control input-sm chat-input" placeholder="password" maxlength="20"/>
 		            </br>
@@ -32,14 +32,14 @@
         
 		<table class="table-bordered table-striped table-condensed table-hover">
 		  <tr>
-		    <th>Email</th>
+		    <th>Name</th>
 		    <th>Password</th>
 		    <th>isAdmin</th>
 		    <th>Delete</th>
 		  </tr>
 		    @for(user <- users) {
 		    <tr>
-		    <td>@user.email</td>
+		    <td>@user.name</td>
 		    <td>@user.password</td>
 		    <td>@user.isAdmin</td>
 		    <td>@form(routes.Application.deleteUser(user.id)) {

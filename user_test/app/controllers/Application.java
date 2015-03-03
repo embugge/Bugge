@@ -4,72 +4,44 @@ import play.*;
 import play.mvc.*;
 import play.data.*;
 import models.*;
+
 import views.html.*;
 
 public class Application extends Controller {
 
     public static Result index() {
-        return redirect(routes.Application.users());
+        return redirect(routes.Application.persons());
     }
 
-    public static Result users() {
+    public static Result persons() {
         return ok(
-                views.html.index.render(User.all(), userForm)
+                views.html.index.render(Person.all(), personForm)
         );
     }
 
     public static Result newUser() {
-        Form<User> filledForm = userForm.bindFromRequest();
+        Form<Person> filledForm = personForm.bindFromRequest();
         if(filledForm.hasErrors()) {
             return badRequest(
-                    views.html.index.render(User.all(), filledForm)
+                    views.html.index.render(Person.all(), filledForm)
             );
         } else {
-            User.create(filledForm.get());
-            return redirect(routes.Application.users());
+            Person.create(filledForm.get());
+            return redirect(routes.Application.persons());
         }
     }
 
     public static Result deleteUser(Long id) {
-        User.delete(id);
-        return redirect(routes.Application.users());
+        Person.delete(id);
+        return redirect(routes.Application.persons());
     }
     
     public static Result login() {
         return ok(
-            login.render(loginForm)
+                views.html.login.render("Erik Bugge")
         );
     }
-    
-    public static Result authenticate() {
-        Form<Login> loginForm = form(Login.class).bindFromRequest();
-        if (loginForm.hasErrors()) {
-            return badRequest(login.render(loginForm));
-        } else {
-            session().clear();
-            session("email", loginForm.get().email);
-            return redirect(
-                routes.Application.index()
-            );
-        }
-    }
-    
 
-    static Form<User> userForm = Form.form(User.class);
-    static Form<Login> loginForm = Form.form(Login.class);
-    
-    public class Login{
-
-        public String email;
-        public String password;
-        
-        public String validate() {
-            if (User.authenticate(email, password) == null) {
-              return "Invalid user or password";
-            }
-            return null;
-        }
-
-    }
+    static Form<Person> personForm = Form.form(Person.class);
 
 }
