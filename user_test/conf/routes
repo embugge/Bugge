@@ -15,6 +15,3 @@ POST    /users/:id/delete       controllers.Application.deleteUser(id: Long)
 
 #Login
 GET		/login					controllers.Application.login()
-
-#UserActivity
-POST	/users					controllers.Application.newUA()
