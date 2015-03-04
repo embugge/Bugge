@@ -1,22 +1,7 @@
-@(users: List[User], activities: List[UserActivity])
+@(user: User, activities: List[UserActivity])
 
-@main("Database overview") {
+@main(user, "Log in"){
 
-		Users:
-		<table class="table-bordered table-striped table-condensed table-hover">
-		  <tr>
-		    <th>Email</th>
-		    <th>Name</th>
-		  </tr>
-		    @for(user <- users) {
-		    <tr>
-		    <td>@user.email</td>
-		    <td>@user.name</td>
-            </td>
-		    </tr>
-		    }
-		</table>
-		<br>
 		User activities:
 		<table class="table-bordered table-striped table-condensed table-hover">
 		  <tr>
