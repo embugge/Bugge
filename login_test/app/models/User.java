@@ -1,8 +1,11 @@
 package models;
 
 import java.util.List;
+
 import javax.persistence.*;
+
 import play.db.ebean.*;
+
 import com.avaje.ebean.*;
 
 @Entity
@@ -25,6 +28,10 @@ public class User extends Model {
     
     public static List<User> all() {
         return find.all();
+    }
+    
+    public static void create(User user) {
+        user.save();
     }
         
     public static User authenticate(String email, String password) {
