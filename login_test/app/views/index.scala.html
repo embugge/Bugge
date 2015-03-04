@@ -1,7 +1,37 @@
-@(message: String)
+@(users: List[User], activities: List[UserActivity])
 
-@main("Welcome to Play 2.0") {
+@main("Database overview") {
 
-  <h1>@message</h1>
+		Users:
+		<table class="table-bordered table-striped table-condensed table-hover">
+		  <tr>
+		    <th>Email</th>
+		    <th>Name</th>
+		  </tr>
+		    @for(user <- users) {
+		    <tr>
+		    <td>@user.email</td>
+		    <td>@user.name</td>
+            </td>
+		    </tr>
+		    }
+		</table>
+		<br>
+		User activities:
+		<table class="table-bordered table-striped table-condensed table-hover">
+		  <tr>
+		    <th>Id</th>
+		    <th>Name</th>
+		    <th>Owner</th>
+		  </tr>
+		    @for(ua <- activities) {
+		    <tr>
+		    <td>@ua.id</td>
+		    <td>@ua.name</td>
+		    <td>@ua.belongsTo.email</td>
+            </td>
+		    </tr>
+		    }
+		</table>
 
 }

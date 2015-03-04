@@ -1,7 +1,11 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.*;
+
 import play.db.ebean.*;
+
 import com.avaje.ebean.*;
 
 @Entity
@@ -23,4 +27,7 @@ public class UserActivity extends Model {
         Long.class, UserActivity.class
     ); 
     
+    public static List<UserActivity> all() {
+        return find.all();
+    }
 }
