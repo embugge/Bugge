@@ -1,5 +1,7 @@
 package controllers;
 
+import static play.data.Form.form;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +67,7 @@ public class Application extends Controller {
     			Activity.all(),
     			Form.form(UserActivity.class)));
     }
+    
     public static List<UserActivity> findUseractivities(){
     	User user = User.find.byId(request().username());
     	List<UserActivity> ua = UserActivity.all();
@@ -77,6 +80,13 @@ public class Application extends Controller {
     	return user_ua;
     }
 
+    public static Result updateUA(Long id){
+    	Form<UserActivity> newForm = form(UserActivity.class).bindFromRequest();
+    	Form<UserActivity> oldForm = form(UserActivity.class).fill(UserActivity.find.byId(id));
+        oldForm.get().steps += newForm.get().steps;
+        oldForm.get().save();
+        return redirect(routes.Application.useractivity());
+    }
     
     public static class Login {
 
@@ -90,7 +100,5 @@ public class Application extends Controller {
             return null;
         }
 
-    }    
-
-    
+    }
 }

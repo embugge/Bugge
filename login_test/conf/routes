@@ -19,3 +19,4 @@ POST	/signup						controllers.Application.createUser()
 
 #UserActivities
 GET		/useractivity				controllers.Application.useractivity()
+POST	/useractivity				controllers.Application.updateUA(id:Long)

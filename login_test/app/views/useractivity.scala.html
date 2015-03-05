@@ -15,4 +15,17 @@
 		    </tr>
 		    }
 		</table>
+
+			@for(ua <- useractivities){
+				<ul></ul>
+				@helper.form(routes.Application.updateUA(ua.id)) {
+				<li>
+				<input type="text" name="steps" />
+				<input type="submit" />
+				</li>
+				}
+				</ul>
+			
+			}
+
 }
