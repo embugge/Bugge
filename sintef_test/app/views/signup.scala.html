@@ -1,20 +1,21 @@
-@(form: Form[Application.Login])
+@(form: Form[User])
+
 
 <html>
     <head>
-        <title>Log in</title>
+        <title>Sign up</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.at("stylesheets/login.css")">
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
-
+    <body>
+        	
 	<div class="container" style="margin-top:40px">
 		<div class="row">
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Sign in to continue</strong>
+						<strong> Sign up</strong>
 									@if(form.hasGlobalErrors) {
 					    <p style="color:red;" class="error">
 					        @form.globalError.message
@@ -27,16 +28,24 @@
 						}
 					</div>
 					<div class="panel-body">
-						@helper.form(routes.Application.authenticate) {
+						@helper.form(routes.Application.createUser) {
 							<fieldset>								
 								<div class="row">
 									<div class="col-sm-12 col-md-10  col-md-offset-1 ">
 										<div class="form-group">
 											<div class="input-group">
 												<span class="input-group-addon">
+													<i class="glyphicon glyphicon-envelope"></i>
+												</span> 
+												<input class="form-control" placeholder="Email" name="email" type="text" autofocus />
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="input-group">
+												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Email" name="email" type="text" autofocus>
+												<input class="form-control" placeholder="Name" name="name" type="text" />
 											</div>
 										</div>
 										<div class="form-group">
@@ -44,11 +53,11 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="">
+												<input class="form-control" placeholder="Password" name="password" type="password" value="" />
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create user" />
 										</div>
 									</div>
 								</div>
@@ -56,7 +65,7 @@
 						}
 					</div>
 					<div class="panel-footer ">
-						Don't have an account? <a href="/signup" onClick=""> Sign Up Here </a>
+						Your user will be activated within a few seconds.
 					</div>
                 </div>
 			</div>

@@ -13,9 +13,8 @@ import views.html.*;
 
 public class Application extends Controller {
 
-	@Security.Authenticated(Secured.class)
 	public static Result index() {
-        return ok(index.render(User.find.byId(request().username()), UserActivity.all()));
+        return ok(index.render());
     }
 
     public static Result login() {
@@ -46,7 +45,7 @@ public class Application extends Controller {
             session().clear();
             session("email", loginForm.get().email);
             return redirect(
-                routes.Application.index()
+                routes.Application.useractivity()
             );
         }
     }
@@ -55,7 +54,7 @@ public class Application extends Controller {
         session().clear();
         flash("success", "You've been logged out");
         return redirect(
-            routes.Application.login()
+            routes.Application.index()
         );
     }
     
