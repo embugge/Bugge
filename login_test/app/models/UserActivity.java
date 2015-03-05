@@ -16,13 +16,11 @@ public class UserActivity extends Model {
     public String name;
     @ManyToOne
     public User belongsTo;
-    @
     
     public UserActivity(int id, String name, User belongsTo) {
       this.id = id;
       this.name = name;
       this.belongsTo = belongsTo;
-      
     }
 
     public static Finder<Long,UserActivity> find = new Finder<Long,UserActivity>(
