@@ -1,0 +1,18 @@
+@(user: User, useractivities: List[UserActivity], activities: List[Activity], uaForm: Form[UserActivity])
+
+@main(user, "Dashboard"){
+
+
+<table class="table-bordered table-striped table-condensed table-hover">
+		  <tr>
+		    <th>Activity</th>
+		    <th>Steps</th>
+		  </tr>
+		    @for(ua <- useractivities) {
+		    <tr>
+		    <td>@ua.activity.name</td>
+		    <td>@ua.steps</td>
+		    </tr>
+		    }
+		</table>
+}

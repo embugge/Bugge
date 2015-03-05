@@ -1,5 +1,8 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import play.*;
 import play.data.*;
 import play.mvc.*;
@@ -53,6 +56,27 @@ public class Application extends Controller {
             routes.Application.login()
         );
     }
+    
+    @Security.Authenticated(Secured.class)
+    public static Result useractivity(){
+    	return ok(useractivity.render(
+    			User.find.byId(request().username()), 
+    			findUseractivities(),
+    			Activity.all(),
+    			Form.form(UserActivity.class)));
+    }
+    public static List<UserActivity> findUseractivities(){
+    	User user = User.find.byId(request().username());
+    	List<UserActivity> ua = UserActivity.all();
+    	List<UserActivity> user_ua = new ArrayList<UserActivity>();
+    	for(int i=0;i<ua.size();i++){
+    		if(ua.get(i).belongsTo.email.equals(user.email)){
+    			user_ua.add(ua.get(i));
+    		}
+    	}
+    	return user_ua;
+    }
+
     
     public static class Login {
 

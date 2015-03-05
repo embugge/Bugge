@@ -6,13 +6,13 @@
 		<table class="table-bordered table-striped table-condensed table-hover">
 		  <tr>
 		    <th>Id</th>
-		    <th>Name</th>
+		    <th>Steps</th>
 		    <th>Owner</th>
 		  </tr>
 		    @for(ua <- activities) {
 		    <tr>
 		    <td>@ua.id</td>
-		    <td>@ua.name</td>
+		    <td>@ua.steps</td>
 		    <td>@ua.belongsTo.email</td>
             </td>
 		    </tr>
