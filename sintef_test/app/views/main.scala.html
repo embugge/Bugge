@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <title>@title</title>"
+        <title>@title</title>
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" href="@routes.Assets.at("images/sintef-logo.gif")">
         <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
@@ -12,7 +12,7 @@
     </head>
     <body>
 	    <header>
-	            <input type="button" href="@routes.Application.logout()" value="Logout">
+	            <a href="@routes.Application.logout()">Logout</a>
 		</header>
 		<h3>Logged in as @user.name</h3>
 		<br><br>
