@@ -1,9 +1,7 @@
 package models;
 
 import models.*;
-
 import org.junit.*;
-
 import static org.junit.Assert.*;
 import play.test.WithApplication;
 import static play.test.Helpers.*;
@@ -41,9 +39,9 @@ public class ModelsTest extends WithApplication {
     	new Activity("running", 3).save();
     	User bob = User.find.where().eq("email", "embugge@hotmail.com").findUnique();
     	Activity activity = Activity.find.where().eq("name", "running").findUnique();
-        new UserActivity(3, bob, activity, 2000).save();
+        new UserActivity(3, "Erik", bob, activity, 2000).save();
         UserActivity uaTest = UserActivity.find.where().eq("id", "3").findUnique();
         assertNotNull(uaTest);
-        assertEquals(bob, uaTest.belongsTo);
+        assertEquals("Erik", uaTest.name);
     }
 }
